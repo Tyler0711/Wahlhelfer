@@ -1008,3 +1008,180 @@ main#app-container.bw-card-hero {
     font-style: normal;
     font-weight: 600;
 }
+
+/* ========================================
+   MOBILE OPTIMIZATIONS
+   ======================================== */
+
+/* Fix for mobile viewport and scrolling issues */
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Prevent horizontal overflow from 100vw elements */
+.top-nav,
+.container.bw-page-hero::before,
+#site-header.bw-header-hero::before {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+    /* Fix body padding for mobile */
+    body {
+        padding-top: 4rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Ensure main container doesn't overflow */
+    main#app-container {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: hidden;
+    }
+    
+    /* Fix 100vw elements on mobile */
+    .container.bw-page-hero::before,
+    #site-header.bw-header-hero::before {
+        width: 100%;
+        left: 0;
+        transform: none;
+    }
+    
+    /* Fix top navigation on mobile */
+    .top-nav {
+        width: 100%;
+        padding: 0.5rem;
+    }
+    
+    /* Make sure screens can scroll */
+    .screen {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: calc(100vh - 4rem);
+    }
+    
+    /* Fix container max-width for mobile */
+    .container {
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Fix thesis card on mobile */
+    #thesis-card {
+        max-width: 100%;
+        margin: 1rem auto;
+    }
+    
+    /* Reduce hero height on mobile */
+    :root {
+        --hero-h: 400px;
+        --band-top: 400px;
+    }
+    
+    #site-header.bw-header-hero {
+        min-height: 180px;
+    }
+    
+    #site-header.bw-header-hero::before {
+        height: 180px;
+    }
+    
+    /* Fix table overflow on mobile */
+    .overflow-x-auto {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Fix comparison table on mobile */
+    table {
+        min-width: 100%;
+        font-size: 0.875rem;
+    }
+    
+    table th,
+    table td {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Fix AI model grid on mobile */
+    #ai-models-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .ai-model-card {
+        padding: 0.75rem;
+    }
+    
+    .ai-model-logo {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+    
+    /* Fix buttons on mobile */
+    .btn {
+        font-size: 0.95rem;
+        padding: 0.65rem 1rem;
+    }
+    
+    /* Fix dark mode toggle on mobile */
+    #dark-mode-toggle {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        padding: 0.875rem;
+    }
+    
+    /* Fix white tail on mobile */
+    main#app-container.with-white-tail::after {
+        width: 100%;
+        left: 0;
+        transform: none;
+    }
+    
+    /* Fix password gate on mobile */
+    #password-gate-screen .max-w-3xl {
+        max-width: 95%;
+        padding: 1rem;
+    }
+    
+    /* Fix party logos grid on mobile */
+    .grid {
+        gap: 0.75rem;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    #ai-models-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Make comparison buttons stack on very small screens */
+    .comparison-filter-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
