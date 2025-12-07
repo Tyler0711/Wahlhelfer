@@ -996,21 +996,12 @@ async function getAiAnalysis() {
     });
     
     try {
-        // --- ANFANG DER ÄNDERUNG ---
-
-        // const apiKey = ""; // ALT - LÖSCHEN
-        // const apiUrl = `...`; // ALT - LÖSCHEN
-        // let chatHistory = ...; // ALT - LÖSCHEN
-        // const payload = { contents: chatHistory }; // ALT - LÖSCHEN
-
-        // Das ist der NEUE Code:
-        const response = await fetch('/analyze', {
+        // Call deployed backend API
+        const response = await fetch('https://wahlhelfer.onrender.com/analyze', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: prompt }) // Schicke den Prompt als JSON-Objekt
+            body: JSON.stringify({ prompt: prompt })
         });
-
-        // --- ENDE DER ÄNDERUNG ---
 
         if (!response.ok) { 
             const errorData = await response.json(); // Versuche, Fehlerdetails vom Server zu lesen
@@ -1661,8 +1652,8 @@ async function getAIModelAnalysis(model) {
     }));
     
     try {
-        // Make real API call to backend
-        const response = await fetch(`http://localhost:3001/api/analyze/${model.endpoint}`, {
+        // Make real API call to deployed backend
+        const response = await fetch(`https://wahlhelfer.onrender.com/api/analyze/${model.endpoint}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
