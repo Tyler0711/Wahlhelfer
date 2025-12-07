@@ -1,0 +1,12 @@
+Place your real party logo SVG or PNG files here.
+Expected filenames (case-insensitive on Windows):
+- cdu.svg
+- gruene.svg
+- spd.svg
+- fdp.svg
+- afd.svg
+- linke.svg
+- fw.svg
+- piraten.svg
+
+You can also use .png (e.g. cdu.png). The app will attempt the provided extension; update data.js logos if you change filenames.

@@ -1,0 +1,19 @@
+{
+  "wahlkreis-1-stuttgart-i": {
+    "candidates": [
+      { "name": "Vorname Nachname", "partyId": "CDU", "bio": "Kurz-Bio optional.", "priorities": ["Thema A", "Thema B"], "localTheses": {"51": 1, "52": 0} },
+      { "name": "Vorname Nachname", "partyId": "GRÜNE" },
+      { "name": "Vorname Nachname", "partyId": "SPD" },
+      { "name": "Vorname Nachname", "partyId": "FDP" },
+      { "name": "Vorname Nachname", "partyId": "LINKE" },
+      { "name": "Vorname Nachname", "partyId": "AfD" }
+    ]
+  },
+  "wahlkreis-2-stuttgart-ii": {
+    "candidates": [
+      { "name": "Vorname Nachname", "partyId": "CDU" },
+      { "name": "Vorname Nachname", "partyId": "GRÜNE" },
+      { "name": "Vorname Nachname", "partyId": "SPD" }
+    ]
+  }
+}

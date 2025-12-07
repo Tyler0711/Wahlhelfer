@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120">
+  <rect width="300" height="120" fill="#FFFFFF"/>
+  <circle cx="60" cy="60" r="45" fill="#46962b"/>
+  <path d="M 35 75 Q 35 40, 60 30 Q 85 40, 85 75 Q 85 82, 77 82 L 43 82 Q 35 82, 35 75 Z" fill="#FFFFFF"/>
+  <circle cx="60" cy="48" r="8" fill="#46962b"/>
+  <text x="130" y="75" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#46962b" text-anchor="start">GRÜNE</text>
+</svg>

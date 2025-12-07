@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wahlhelfer BW 2026</title>
+    
+    <!-- Externe Skripte & Schriften bleiben -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Der alte <style>-Block ist jetzt durch die externe CSS-Datei ersetzt -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-800">
+
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-mode-toggle" class="fixed bottom-6 right-6 z-50 bg-gray-800 text-white p-4 rounded-full shadow-lg hover:bg-gray-700 transition-all duration-300 hover:scale-110" title="Dark Mode umschalten">
+        <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <!-- Password Gate Screen (Set ENABLE_PASSWORD_GATE = true in app.js to activate) -->
+    <div id="password-gate-screen" class="screen" style="display: none;">
+        <div class="fixed inset-0 w-full h-full bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 z-50" style="overflow: hidden !important;">
+            <!-- Background decoration -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+                <div class="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            </div>
+            
+            <div class="relative z-10 flex items-center justify-center h-full px-4">
+                <div class="text-center max-w-3xl">
+                    <!-- Logo/Icon -->
+                    <div class="mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-white">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    
+                    <!-- Main Heading -->
+                    <h1 class="text-6xl md:text-7xl font-black text-white mb-4 tracking-tight">
+                        Wahlhelfer
+                    </h1>
+                    <p class="text-3xl md:text-4xl font-bold text-blue-200 mb-6">
+                        Baden-Württemberg 2026
+                    </p>
+                    
+                    <!-- Coming Soon Badge -->
+                    <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-12">
+                        <p class="text-white font-semibold text-lg">🚀 Coming Soon</p>
+                    </div>
+                    
+                    <!-- Info Text -->
+                    <div class="text-white/80 max-w-2xl mx-auto">
+                        <p class="text-lg mb-4">
+                            Dein digitaler Begleiter zur Landtagswahl in Baden-Württemberg
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-6 text-sm">
+                            <span class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                52 Thesen
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                KI-Analysen
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                Wahlkreis-Infos
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Password Input (bottom right corner) -->
+            <div class="absolute bottom-8 right-8 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 z-50">
+                <p class="text-white/80 text-xs mb-2 font-medium">Preview-Zugang</p>
+                <div class="flex items-center gap-2">
+                    <input 
+                        type="password" 
+                        id="password-input" 
+                        class="bg-white/20 text-white placeholder-white/60 border-0 px-4 py-2 rounded-lg focus:ring-2 focus:ring-white/50 focus:outline-none w-40"
+                        placeholder="Passwort"
+                        onkeypress="if(event.key === 'Enter') checkPassword()"
+                        style="pointer-events: auto;"
+                    >
+                    <button onclick="checkPassword()" class="bg-white text-blue-700 hover:bg-blue-50 font-bold p-2 rounded-lg transition-colors" style="pointer-events: auto;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                            <polyline points="10 17 15 12 10 7"></polyline>
+                            <line x1="15" y1="12" x2="3" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+                <p id="password-error" class="text-red-300 text-xs mt-2" style="display: none;">Falsches Passwort</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Home Button - Fixed at top-left -->
+    <button class="home-button" onclick="showScreen('election-selection-screen')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+    </button>
+
+    <!-- New Navigation Bar -->
+    <nav class="top-nav">
+        <button id="nav-about-us-btn" onclick="showScreen('about-us-screen')" class="top-nav-button">Über uns</button>
+        <button id="nav-impressum-btn" onclick="showScreen('impressum-screen')" class="top-nav-button">Impressum</button>
+        <!-- Wahlkreis-Übersicht button is now context-specific and moved to the start-screen -->
+    </nav>
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl min-h-screen flex flex-col justify-center">
+        
+        <header id="site-header" class="text-center mb-8 relative overflow-hidden rounded-2xl">
+            <div class="relative z-10">
+                <div class="inline-block bg-white p-4 rounded-full shadow-lg mb-4">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><path d="M3 3h18v18H3zM9 9l6 6m0-6l-6 6"/></svg>
+                </div>
+                <h1 id="site-title" class="text-4xl sm:text-5xl font-extrabold text-gray-900">
+                    Wahlhelfer
+                </h1>
+                <p id="site-subtitle" class="text-2xl sm:text-3xl font-black text-gray-900 mt-2 subtitle-text">Ihre Position zur Landtagswahl</p>
+            </div>
+        </header>
+
+        <main id="app-container" class="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl">
+
+            <!-- Screen 0: Election Selection Screen (NEW) -->
+            <div id="election-selection-screen" class="screen active text-center">
+                <h2 class="text-2xl font-bold mb-4">Wählen Sie eine Wahl aus</h2>
+                <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
+                    Hier können Sie den Wahl-Kompass für verschiedene Wahlen starten.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button onclick="selectElection('baden-wuerttemberg')" class="btn w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg">
+                        Landtagswahl Baden-Württemberg 2026
+                    </button>
+                    <!-- Future buttons for other elections can go here -->
+                </div>
+            </div>
+
+            <!-- Screen 1: Start Screen (now specific to BW) -->
+            <div id="start-screen" class="screen text-center">
+                <h2 class="text-2xl font-bold mb-4">Entdecken Sie, welche Partei zu Ihnen passt.</h2>
+                <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
+                    Beantworten Sie Thesen zur Landespolitik. Unser Wahl-Kompass vergleicht Ihre Haltung mit den Parteien und eine KI gibt Ihnen auf Wunsch eine persönliche Analyse.
+                </p>
+                <button onclick="showScreen('quiz-length-selection-screen')" class="btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-lg text-lg">
+                    Kompass starten
+                </button>
+                <div class="mt-4 flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="showWahlkreisOverview()" class="btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-10 rounded-lg text-lg">
+                        Wahlkreis-Übersicht
+                    </button>
+                    <button onclick="showLeadingCandidates()" class="btn bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-10 rounded-lg text-lg">
+                        Spitzenkandidaten
+                    </button>
+                </div>
+            </div>
+
+            <!-- Screen 1.5: Quiz Length Selection Screen -->
+            <div id="quiz-length-selection-screen" class="screen text-center">
+                <h2 class="text-2xl font-bold mb-4">Wählen Sie die Länge des Quiz</h2>
+                <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
+                    Je mehr Thesen Sie beantworten, desto präziser wird Ihr Ergebnis.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <button onclick="selectQuizLength(15)" class="btn w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg">
+                        15 Fragen
+                    </button>
+                    <button onclick="selectQuizLength(30)" class="btn w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg">
+                        30 Fragen
+                    </button>
+                    <button onclick="selectQuizLength(50)" class="btn w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg">
+                        50 Fragen
+                    </button>
+                </div>
+            </div>
+
+            <!-- Screen 2: Theses Screen -->
+            <div id="theses-screen" class="screen">
+                   <div class="flex justify-between items-center mb-4">
+                    <button onclick="goBack()" id="back-button" class="text-gray-500 hover:text-blue-600 font-semibold py-2 px-4 rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+                        Zurück
+                    </button>
+                    <div id="progress-text" class="font-bold text-lg text-gray-700">These 1 / 52</div>
+                </div>
+                
+                <!-- Enhanced Progress Bar -->
+                <div class="mb-8">
+                    <div class="w-full bg-gray-200 rounded-full h-3 shadow-inner relative overflow-hidden">
+                        <div id="progress-bar" class="progress-bar-animated h-3 rounded-full transition-all duration-500 ease-out relative overflow-hidden" style="width: 0%; background: linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%);">
+                            <div class="progress-shine"></div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-2 text-xs text-gray-500">
+                        <span id="progress-percentage">0% abgeschlossen</span>
+                        <span id="progress-remaining">52 Thesen übrig</span>
+                    </div>
+                </div>
+                
+                <div id="thesis-card" class="bg-gray-50 p-6 rounded-xl text-center border shadow-sm">
+                    <p class="text-xl sm:text-2xl font-semibold mb-4" id="thesis-text-container">
+                        <span id="thesis-text">These wird geladen...</span>
+                        <button onclick="toggleThesisExplanation()" class="ml-2 text-blue-600 hover:text-blue-800 focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.064.293.006.399.287.47l2.29-.287.082-.38-.45-.083c-.294-.07-.352-.176-.288.469l.738-3.468c.064-.293-.006-.399-.287-.47zM8 4.995a1 1 0 1 0 0 2a1 1 0 0 0 0-2z"/>
+                            </svg>
+                        </button>
+                    </p>
+                    <div id="thesis-explanation-text" class="text-gray-600 text-sm italic border-t border-gray-200 pt-4 mt-4 thesis-explanation"></div>
+                    
+                    <!-- NEUER Pro/Contra Button und Container -->
+                    <div class="flex justify-center mt-8">
+                        <button onclick="toggleProCon()" class="pro-contra-btn-large">
+                            Pro und Contra Liste anzeigen
+                        </button>
+                    </div>
+                    <div id="pro-con-text" class="pro-con-container">
+                        <!-- Inhalt wird dynamisch via JS gefüllt -->
+                    </div>
+                    <!-- ENDE NEU -->
+
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
+                        <button id="btn-answer-yes" onclick="handleAnswer(1)" class="btn w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/></svg>
+                            Stimme zu
+                        </button>
+                        <button id="btn-answer-neutral" onclick="handleAnswer(0)" class="btn w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/></svg>
+                            Neutral
+                        </button>
+                        <button id="btn-answer-no" onclick="handleAnswer(-1)" class="btn w-full sm:w-auto bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1 0-.708z"/></svg>
+                            Stimme nicht zu
+                        </button>
+                    </div>
+                    <!-- Bottom navigation inside the card -->
+                    <div class="thesis-nav mt-8">
+                        <button id="nav-prev" onclick="goBack()" class="btn-nav text-gray-700 hover:text-blue-700 flex items-center gap-2" aria-label="Zurück (Pfeil links)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            Zurück
+                        </button>
+                        <button id="nav-skip" onclick="skipThesis()" class="btn-nav text-gray-600 hover:text-yellow-700 flex items-center gap-2" aria-label="These überspringen (S)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg>
+                            Überspringen
+                        </button>
+                        <button id="nav-next" onclick="goForward()" class="btn-nav-primary flex items-center gap-2" aria-label="Weiter (Pfeil rechts)">
+                            Weiter
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Screen 3: Weighting Screen -->
+            <div id="weighting-screen" class="screen">
+                <h2 class="text-2xl font-bold mb-2 text-center">Gewichtung</h2>
+                <p class="text-gray-700 mb-8 text-center">Welche Thesen sind Ihnen besonders wichtig? Diese zählen doppelt.</p>
+                <div id="weighting-list" class="space-y-3 mb-8"></div>
+                <div class="text-center">
+                    <button onclick="showPartySelection()" class="btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-lg text-lg">
+                        Weiter zur Parteiauswahl
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Screen 4: Party Selection Screen -->
+            <div id="party-selection-screen" class="screen">
+                <h2 class="text-2xl font-bold mb-2 text-center">Parteiauswahl</h2>
+                <p class="text-gray-700 mb-8 text-center">Wählen Sie die Parteien für Ihren Vergleich aus.</p>
+                <div id="party-selection-list" class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8"></div>
+                <div class="text-center">
+                   <button onclick="calculateResults()" class="btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-lg text-lg">
+                        Ergebnis berechnen
+                    </button>
+                </div>
+            </div>
+
+            <!-- Screen 5: Results Screen -->
+            <div id="results-screen" class="screen">
+                <h2 class="text-2xl font-bold mb-6 text-center">Ihr Ergebnis</h2>
+                <div id="results-list" class="space-y-4 mb-8"></div>
+                
+                <div class="text-center mt-8 space-y-4">
+                    <button onclick="showDetailedComparison()" class="btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-lg text-lg">
+                        Detaillierter Parteivergleich
+                    </button>
+                    <button onclick="showPartyProfiles()" class="btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-lg text-lg">
+                        Parteiprofile mit KI-Analyse
+                    </button>
+                </div>
+
+                <!-- AI Models Analysis Section -->
+                <div class="bg-gray-50 p-6 rounded-xl mt-10 border">
+                    <h3 class="text-xl font-bold mb-4 text-center flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-600"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        Analysen von Top KI-Modellen
+                    </h3>
+                    <p class="text-gray-700 mb-6 text-center">Sehen Sie, wie verschiedene KI-Modelle Ihre Antworten unterschiedlich einschätzen.</p>
+                    
+                    <div id="ai-models-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-6">
+                        <!-- AI Model cards will be generated here -->
+                    </div>
+
+                    <!-- Individual AI Model Analysis Containers -->
+                    <div id="ai-model-analyses" class="space-y-4 mt-6">
+                        <!-- Individual analyses will be inserted here -->
+                    </div>
+                </div>
+
+                   <div class="text-center mt-8">
+                    <button onclick="restart()" class="text-gray-500 hover:text-blue-600 font-semibold py-2 px-4 rounded-lg">Nochmal von vorne</button>
+                </div>
+            </div>
+
+            <!-- Screen 6: Detailed Comparison Screen -->
+            <div id="detailed-comparison-screen" class="screen">
+                <div class="flex justify-between items-center mb-6">
+                    <button onclick="showScreen('results-screen')" class="text-gray-500 hover:text-blue-600 font-semibold py-2 px-4 rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+                        Zurück zu den Ergebnissen
+                    </button>
+                </div>
+                <h2 class="text-2xl font-bold mb-6 text-center">Detaillierter Vergleich der Parteipositionen</h2>
+                
+                <!-- Filter by category -->
+                <div class="mb-6 flex flex-wrap gap-2 justify-center">
+                    <button onclick="filterComparisonByCategory('Alle')" class="comparison-filter-btn active px-4 py-2 rounded-lg text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700">Alle</button>
+                    <button onclick="filterComparisonByCategory('Klimaschutz & Umwelt')" class="comparison-filter-btn px-4 py-2 rounded-lg text-sm font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300">Klimaschutz</button>
+                    <button onclick="filterComparisonByCategory('Bildung')" class="comparison-filter-btn px-4 py-2 rounded-lg text-sm font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300">Bildung</button>
+                    <button onclick="filterComparisonByCategory('Verkehr & Mobilität')" class="comparison-filter-btn px-4 py-2 rounded-lg text-sm font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300">Verkehr</button>
+                    <button onclick="filterComparisonByCategory('Wirtschaft & Arbeit')" class="comparison-filter-btn px-4 py-2 rounded-lg text-sm font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300">Wirtschaft</button>
+                    <button onclick="filterComparisonByCategory('Innere Sicherheit')" class="comparison-filter-btn px-4 py-2 rounded-lg text-sm font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300">Sicherheit</button>
+                </div>
+
+                <div id="comparison-table-container" class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <table class="min-w-full">
+                        <thead class="bg-gray-100 border-b-2 border-gray-300">
+                            <tr id="comparison-table-header" class="text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                <th class="py-3 px-4 w-1/3">These</th>
+                                <th class="py-3 px-4 w-24">Du</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-table-body" class="divide-y divide-gray-200">
+                            <!-- Comparison rows will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination Controls -->
+                <div class="flex justify-between items-center mt-6">
+                    <button id="comparison-prev-btn" onclick="changeComparisonPage(-1)" class="px-6 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed">
+                        ← Zurück
+                    </button>
+                    <span id="comparison-page-info" class="text-gray-600 font-medium">Seite 1 von 1</span>
+                    <button id="comparison-next-btn" onclick="changeComparisonPage(1)" class="px-6 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg font-semibold text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed">
+                        Weiter →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Screen 7: Party Profile Screen -->
+            <div id="party-profile-screen" class="screen">
+                <div class="flex justify-between items-center mb-6">
+                    <button onclick="showScreen('results-screen')" class="text-gray-500 hover:text-blue-600 font-semibold py-2 px-4 rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+                        Zurück zu den Ergebnissen
+                    </button>
+                </div>
+                <h2 class="text-2xl font-bold mb-6 text-center">Parteiprofile mit KI-Analyse</h2>
+                <div id="party-profile-list" class="space-y-6">
+                    <!-- Party profiles will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <!-- Screen 8: Wahlkreis Overview Screen -->
+            <div id="wahlkreis-overview-screen" class="screen">
+                <div class="flex justify-between items-center mb-6">
+                    <!-- Modified back button to always go to election selection screen -->
+                    <button onclick="showScreen('election-selection-screen')" class="text-gray-500 hover:text-blue-600 font-semibold py-2 px-4 rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+                        Zurück zur Wahl-Auswahl
+                    </button>
+                </div>
+                <h2 class="text-2xl font-bold mb-6 text-center">Wahlkreis-Übersicht</h2>
+                <div class="mb-6 text-center">
+                    <label for="wahlkreis-select" id="wahlkreis-select-label" class="block text-lg font-medium text-gray-700 mb-2">Wahlkreis auswählen:</label>
+                    <div id="wahlkreis-select-wrapper" class="relative mx-auto w-full max-w-xs">
+                        <select id="wahlkreis-select" onchange="displayCandidatesForWahlkreis()" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md shadow-sm">
+                            <!-- Options will be populated by JS -->
+                        </select>
+                    </div>
+                </div>
+                <div id="candidates-list" class="space-y-4">
+                    <!-- Candidates will be displayed here -->
+                </div>
+            </div>
+
+            <!-- Screen 9: Candidate Profile Screen -->
+            <div id="candidate-profile-screen" class="screen">
+                <div class="flex justify-between items-center mb-6">
+                    <button onclick="showScreen('wahlkreis-overview-screen')" class="text-gray-500 hover:text-blue-600 font-semibold py-2 px-4 rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+                        Zurück zur Wahlkreis-Übersicht
+                    </button>
+                </div>
+                <h2 class="text-2xl font-bold mb-6 text-center" id="candidate-profile-name"></h2>
+                <div id="candidate-profile-content" class="bg-gray-50 p-6 rounded-xl border shadow-sm space-y-4">
+                    <!-- Profile details will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <!-- Screen 10: Leading Candidates Screen -->
+            <div id="leading-candidates-screen" class="screen">
+                <div class="flex justify-between items-center mb-6">
+                    <button onclick="showScreen('start-screen')" class="text-gray-500 hover:text-blue-600 font-semibold py-2 px-4 rounded-lg flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+                        Zurück zur Startseite
+                    </button>
+                </div>
+                <h2 class="text-2xl font-bold mb-6 text-center">Spitzenkandidaten 2026</h2>
+                <p class="text-gray-700 mb-8 text-center max-w-2xl mx-auto">
+                    Wählen Sie eine Partei aus, um mehr über ihren Spitzenkandidaten zu erfahren.
+                </p>
+                <div id="leading-candidates-buttons" class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+                    <!-- Party buttons will be generated by JavaScript -->
+                </div>
+                <div id="leading-candidate-profile" class="bg-gray-50 p-6 rounded-xl border shadow-sm space-y-4">
+                    <!-- Profile details will be displayed here -->
+                </div>
+            </div>
+
+            <!-- Screen 11: About Us Screen -->
+            <div id="about-us-screen" class="screen">
+                <h2 id="about-us-heading" class="text-3xl font-bold mb-4 text-center">Über den Wahlhelfer</h2>
+                <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+                    Der Wahlhelfer ist Ihr innovatives Tool, um Ihre politische Position zu entdecken. Wir gehen über herkömmliche Wahl-O-Maten hinaus, indem wir Ihnen die folgenden, einzigartigen Funktionen bieten:
+                </p>
+
+                <!-- Features Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+                    
+                    <!-- Feature 1: KI-Analyse -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 bg-purple-100 text-purple-600 rounded-lg p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="12" width="16" height="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 12v-2a3 3 0 0 0-3-3H9a3 0 0 0-3 3v2"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Personalisierte KI-Analyse</h3>
+                            <p class="text-gray-600">Erhalten Sie eine individuelle Analyse Ihres Abstimmungsverhaltens, um Ihre politische Position besser zu verstehen.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2: Parteivergleich -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 bg-green-100 text-green-600 rounded-lg p-3">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Detaillierter Parteivergleich</h3>
+                            <p class="text-gray-600">Vergleichen Sie Ihre Antworten direkt mit den Positionen der Parteien zu jeder einzelnen These.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 3: Wahlkreis-Übersicht -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 bg-orange-100 text-orange-600 rounded-lg p-3">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Wahlkreis-Übersicht</h3>
+                            <p class="text-gray-600">Finden Sie Informationen zu den Kandidaten in Ihrem Wahlkreis (fiktive Daten zu Demonstrationszwecken).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 4: Anpassbare Länge -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 bg-blue-100 text-blue-600 rounded-lg p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Anpassbare Quizlänge</h3>
+                            <p class="text-gray-600">Wählen Sie selbst, wie viele Thesen Sie beantworten möchten, um die Präzision Ihres Ergebnisses zu steuern.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 5: Gewichtung -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 bg-yellow-100 text-yellow-600 rounded-lg p-3">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Gewichtung wichtiger Thesen</h3>
+                            <p class="text-gray-600">Markieren Sie Thesen, die Ihnen besonders am Herzen liegen, damit diese doppelt in die Berechnung einfließen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center text-gray-700 mb-8">
+                    Unser Ziel ist es, Ihnen eine umfassende und interaktive Möglichkeit zu bieten, sich mit den politischen Inhalten auseinanderzusetzen und eine fundierte Wahlentscheidung zu treffen.
+                </p>
+                <div class="text-center mt-8">
+                    <button onclick="showScreen('election-selection-screen')" class="btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-lg text-lg">
+                        Zurück zur Wahl-Auswahl
+                    </button>
+                </div>
+            </div>
+
+            <!-- Impressum Screen -->
+            <div id="impressum-screen" class="screen">
+                <h2 class="text-3xl font-bold mb-6 text-center">Impressum</h2>
+                
+                <div class="bg-gray-50 p-6 rounded-xl border shadow-sm space-y-6 max-w-3xl mx-auto">
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Verantwortlich für den Inhalt</h3>
+                        <p class="text-gray-700">
+                            Wahlhelfer Team<br>
+                            Baden-Württemberg<br>
+                            Deutschland
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Zweck und Haftung</h3>
+                        <p class="text-gray-700">
+                            Der Wahlhelfer ist ein informatives Angebot zu Demonstrationszwecken. Die Daten zu Kandidaten und Wahlkreisen sind fiktiv. 
+                            Alle Informationen werden ohne Gewähr bereitgestellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte 
+                            wird keine Haftung übernommen.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Externe Links</h3>
+                        <p class="text-gray-700">
+                            Diese Website enthält Links zu externen Websites. Wir sind nicht verantwortlich für den Inhalt externer Websites. 
+                            Der Betreiber der verlinkten Seite trägt die volle Verantwortung für deren Inhalt.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Urheberrecht</h3>
+                        <p class="text-gray-700">
+                            Der Inhalt dieser Website ist urheberrechtlich geschützt. Jede Vervielfältigung, Bearbeitung, Verbreitung und jede Art 
+                            der Verwertung außerhalb der Grenzen des Urheberrechts bedarf der schriftlichen Zustimmung des Autors oder des Urhebers.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Datenschutz</h3>
+                        <p class="text-gray-700">
+                            Diese Website speichert keine personenbezogenen Daten auf Servern. Alle Daten werden lokal in Ihrem Browser verarbeitet. 
+                            Ihre Antworten zum Quiz verlassen Ihren Computer nicht, es sei denn, Sie nutzen die KI-Analyse-Funktion.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-6">
+                        <p class="text-sm text-gray-600 text-center">
+                            Zuletzt aktualisiert: November 2025
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-8">
+                    <button onclick="showScreen('election-selection-screen')" class="btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-lg text-lg">
+                        Zurück zur Startseite
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- 
+    Der alte <script>-Block ist jetzt durch zwei separate Dateien ersetzt.
+    1. data.js lädt alle Daten (Thesen, Parteien, etc.)
+    2. app.js lädt die Anwendungslogik, die diese Daten verwendet.
+    Die Reihenfolge ist wichtig!
+    -->
+    <script src="data.js?v=3"></script>
+    <script src="app.js?v=3"></script>
+    
+</body>
+</html>

@@ -1,0 +1,1010 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5; /* Slightly more modern background */
+    /* Embedded base64 SVG for a stylized Stuttgart cityscape */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiBmaWxsPSIjRjBGMkY1Ii8+CjxwYXRoIGQ9Ik0wIDc1MEwxOTIwIDc1MFYxMDgwSDBWNzUwWiIgZmlsbD0iI0Q2RDhEQyIvPgo8cGF0aCBkPSJNMCA4NTBMMTkyMCA4NTBWMTg4MEgwVjg1MFoiIGZpbGw9IiNDRUNGQzIiLz4KPHBhdGggZD0iTTEwMCA2NTBMMTEwIDQ1MEwxNTAgNDUwTDE1MCA2NTBMMTAwIDY1MFoiIGZpbGw9IiM4QjgyOUEiLz4KPHBhdGggZD0iTTIwMCA2ODBMMjAwIDQ4MEwyNTAgNDgwTDI1MCA2ODBMMjAwIDY4MFoiIGZpbGw9IiM4QjgyOUEiLz4KPHBhdGggZD0iTTMwMCA2MjBMMzAwIDQyMEwzNTAgNDIwTDM1MCA2MjBMMzAwIDYyMFoiIGZpbGw9IiM4QjgyOUEiLz4KPHBhdGggZD0iTTQwMCA3MDBMNDAwIDUwMEw0NTAgNTAwTDR1MCA3MDBMNDAwIDcwMFoiIGZpbGw9IiM4QjgyOUEiLz4KPHBhdGggZD0iTTUwMCA2NTBMMTUwMCA2NTBWMTA4MEw1MDAgMTA4MFY2NTBaIiBmaWxsPSIjRkZGRkZGIi8+CjxwYXRoIGQ9Ik0xMjAwIDU1MEwxMjAwIDM1MEwxMjUwIDM1MEwxMjUwIDU1MEwxMjAwIDU1MFoiIGZpbGw9IiM4QjgyOUEiLz4KPHBhdGggZD0iTTEzMDAgNjAwTTEzMDAgNDAwTTEzNTAgNDAwTTEzNTAgNjAwTTEzMDAgNjAwWiIgZmlsbD0iIzM4QTI0NCIvPgo8cGF0aCBkPSJNMTQwNiA1ODguNDY0TDE0MDYgNDI3LjI0NkwxNDQxLjc2OCA0MjcuMjQ2TDE0NDEuNzY4IDU4OC40NjRMMTQwNiA1ODguNDY0WiIgZmlsbD0iIzM4NDI0NCIvPgo8cGF0aCBkPSJNMTQ3NSA1NTBMMTQ3NSA1NTBMMTUyNSA1NTBMMTUyNSA1NTBMMTQ3NSA1NTBaIiBmaWxsPSIjOEI4MjlBIi8+CjxwYXRoIGQ9Ik0xNjAwIDY3MEwxNjAwIDQ3MEwxNjUwIDQ3MEwxNjUwIDY3MEwxNjAwIDY3MFoiIGZpbGw9IiMzOEEyNDQiLz4KPHBhdGggZD0iTTE3MDAgNjMwTTE3MDAgNDMwTTE3NTAgNDMwTTE3NTAgNjMwTTE3MDAgNjMwWiIgZmlsbD0iIzM4NDI0NCIvPgo8cGF0aCBkPSJNMTgwMCA2OTBMMTgwMCA0OTBMMTg1MCA0OTBMMTg1MCA2OTBMMTgwMCA2OTBaIiBmaWxsPSIjOEI4MjlBIi8+Cjwvc3ZnPg==');
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Keep the image fixed when scrolling */
+    padding-top: 5rem; /* Space for the fixed top navigation */
+    color: #1f2937;
+}
+
+/* DARK MODE */
+body.dark-mode {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    background-size: 400% 400%;
+    animation: darkGradient 15s ease infinite;
+    color: #e5e7eb;
+}
+
+@keyframes darkGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.dark-mode.hide-bars {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%) !important;
+    background-size: 400% 400% !important;
+    animation: darkGradient 15s ease infinite !important;
+}
+
+/* Dark mode - cards */
+body.dark-mode .bg-white {
+    background-color: #1e293b !important;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .bg-gray-50 {
+    background-color: #1e293b !important;
+}
+
+body.dark-mode .bg-gray-100 {
+    background-color: #0f172a !important;
+}
+
+body.dark-mode .bg-blue-50 {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Dark mode - text colors */
+body.dark-mode .text-gray-800,
+body.dark-mode .text-gray-900 {
+    color: #f3f4f6 !important;
+}
+
+body.dark-mode .text-gray-700 {
+    color: #e5e7eb !important;
+}
+
+body.dark-mode .text-gray-600 {
+    color: #d1d5db !important;
+}
+
+body.dark-mode .text-gray-500 {
+    color: #9ca3af !important;
+}
+
+body.dark-mode .text-blue-600 {
+    color: #60a5fa !important;
+}
+
+body.dark-mode .hover\:text-blue-600:hover {
+    color: #93c5fd !important;
+}
+
+/* Dark mode - borders */
+body.dark-mode .border-gray-200,
+body.dark-mode .border-gray-300 {
+    border-color: #374151 !important;
+}
+
+body.dark-mode .divide-gray-200 > * {
+    border-color: #374151 !important;
+}
+
+/* Dark mode - navigation */
+body.dark-mode .top-nav {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+    border-bottom-color: #334155 !important;
+}
+
+body.dark-mode .home-button {
+    background-color: #1e293b !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .home-button:hover {
+    background-color: #334155 !important;
+}
+
+/* Dark mode - inputs */
+body.dark-mode input,
+body.dark-mode select {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+    color: #e5e7eb !important;
+}
+
+body.dark-mode input::placeholder {
+    color: #64748b !important;
+}
+
+/* Dark mode - shadows */
+body.dark-mode .shadow-md,
+body.dark-mode .shadow-lg,
+body.dark-mode .shadow-xl {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* CSS variable to keep hero height consistent across banner and background bands */
+:root {
+    /* Match the top banner height and control band sizes */
+    --hero-h: 750px;           /* image banner height */
+    --band-top: 750px;         /* end of light gray area */
+    --band-mid: 120px;         /* height of mid gray band */
+    --band-bottom: 160px;      /* height of beige band */
+}
+
+/* Hide decorative bars/background image when the BW hero is active */
+body.hide-bars {
+    /* Keep the two horizontal color bands while removing the decorative bars */
+    background-image: linear-gradient(
+        to bottom,
+        #f0f2f5 0,
+        #f0f2f5 var(--band-top),
+        #d6d8dc var(--band-top),
+        #d6d8dc calc(var(--band-top) + var(--band-mid)),
+        #cecec2 calc(var(--band-top) + var(--band-mid)),
+        #cecec2 calc(var(--band-top) + var(--band-mid) + var(--band-bottom)),
+        #ffffff calc(var(--band-top) + var(--band-mid) + var(--band-bottom)),
+        #ffffff 100%
+    ) !important;
+    background-attachment: initial !important;
+}
+
+/* Subtitle text - extra bold when BW hero background is active */
+.subtitle-text {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* When hero background is visible, make subtitle even more prominent */
+body.hide-bars .subtitle-text {
+    font-weight: 900; /* Extra bold */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.025em; /* Slightly wider spacing for better readability */
+}
+
+body.dark-mode .subtitle-text {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark mode - AI Analysis boxes */
+body.dark-mode .ai-analysis-text {
+    background-color: rgba(30, 41, 59, 0.6) !important;
+    border-color: #475569 !important;
+    color: #e5e7eb !important;
+}
+
+/* Dark mode - Pro/Con containers */
+body.dark-mode .pro-con-container {
+    border-top-color: #475569 !important;
+    background-color: rgba(15, 23, 42, 0.4) !important;
+    color: #d1d5db !important;
+}
+
+body.dark-mode .pro-con-container h3 {
+    color: #f3f4f6 !important;
+}
+
+body.dark-mode .pro-con-container ul {
+    color: #d1d5db !important;
+}
+
+/* Dark mode - Party logos background */
+body.dark-mode .party-logo {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid #475569;
+}
+
+/* Dark mode - Comparison filter buttons */
+body.dark-mode .comparison-filter-btn {
+    background-color: #1e293b !important;
+    color: #d1d5db !important;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .comparison-filter-btn:hover {
+    background-color: #334155 !important;
+    color: #f3f4f6 !important;
+}
+
+body.dark-mode .comparison-filter-btn.active {
+    background-color: #3b82f6 !important;
+    color: #ffffff !important;
+    border-color: #3b82f6 !important;
+}
+
+/* Dark mode - Gray buttons (category filters, etc.) */
+body.dark-mode .bg-gray-200 {
+    background-color: #1e293b !important;
+    color: #d1d5db !important;
+}
+
+body.dark-mode .bg-gray-300 {
+    background-color: #334155 !important;
+}
+
+body.dark-mode .hover\:bg-gray-300:hover {
+    background-color: #475569 !important;
+}
+
+/* Dark mode - Main container */
+body.dark-mode main#app-container {
+    background-color: rgba(30, 41, 59, 0.95) !important;
+    border: 1px solid #334155;
+}
+
+body.dark-mode main#app-container.with-white-tail::after {
+    background: #0f172a !important;
+}
+
+/* Dark mode - Thesis card */
+body.dark-mode #thesis-card {
+    background-color: rgba(30, 41, 59, 0.6) !important;
+    border-color: #475569 !important;
+}
+
+/* Dark mode - Thesis navigation bar (bottom bar with Zurück/Überspringen/Weiter) */
+body.dark-mode .thesis-nav {
+    background-color: #1e293b !important;
+    border-color: #475569 !important;
+}
+
+body.dark-mode .btn-nav {
+    color: #d1d5db !important;
+}
+
+body.dark-mode .btn-nav:hover {
+    background-color: #334155 !important;
+    color: #f3f4f6 !important;
+}
+
+body.dark-mode .btn-nav-primary {
+    background-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .btn-nav-primary:hover {
+    background-color: #2563eb !important;
+}
+
+/* Dark mode - Progress bar background */
+body.dark-mode .bg-gray-200 {
+    background-color: #334155 !important;
+}
+
+/* Dark mode - Tables */
+body.dark-mode table {
+    background-color: #1e293b !important;
+}
+
+body.dark-mode table th {
+    background-color: #0f172a !important;
+    color: #e5e7eb !important;
+}
+
+body.dark-mode table td {
+    border-color: #334155 !important;
+    color: #d1d5db !important;
+}
+
+/* Dark mode - Party colors (make them brighter/more visible) */
+body.dark-mode .bg-black {
+    background-color: #4b5563 !important; /* Lighter gray instead of black */
+}
+
+body.dark-mode .bg-green-600 {
+    background-color: #10b981 !important; /* Brighter green */
+}
+
+body.dark-mode .bg-red-600 {
+    background-color: #ef4444 !important; /* Brighter red */
+}
+
+body.dark-mode .bg-yellow-400 {
+    background-color: #fbbf24 !important; /* Keep bright yellow */
+}
+
+body.dark-mode .bg-blue-500 {
+    background-color: #60a5fa !important; /* Brighter blue */
+}
+
+body.dark-mode .bg-purple-700 {
+    background-color: #a855f7 !important; /* Brighter purple */
+}
+
+body.dark-mode .bg-orange-500 {
+    background-color: #fb923c !important; /* Brighter orange */
+}
+
+body.dark-mode .bg-gray-700 {
+    background-color: #9ca3af !important; /* Lighter gray */
+}
+
+/* Dark mode - Progress bar inner colors */
+body.dark-mode .progress-bar-inner.bg-green-600 {
+    background-color: #10b981 !important;
+}
+
+body.dark-mode .progress-bar-inner.bg-red-600 {
+    background-color: #ef4444 !important;
+}
+
+body.dark-mode .progress-bar-inner.bg-blue-500 {
+    background-color: #60a5fa !important;
+}
+
+body.dark-mode .progress-bar-inner.bg-purple-700 {
+    background-color: #a855f7 !important;
+}
+
+body.dark-mode .progress-bar-inner.bg-orange-500 {
+    background-color: #fb923c !important;
+}
+
+body.dark-mode .progress-bar-inner.bg-yellow-400 {
+    background-color: #fbbf24 !important;
+}
+
+body.dark-mode .progress-bar-inner.bg-black {
+    background-color: #6b7280 !important;
+}
+
+body.dark-mode .progress-bar-inner.bg-gray-700 {
+    background-color: #9ca3af !important;
+}
+
+/* Dark mode - Back button and progress text */
+body.dark-mode #back-button {
+    color: #9ca3af !important;
+}
+
+body.dark-mode #back-button:hover {
+    color: #60a5fa !important;
+}
+
+body.dark-mode #progress-text {
+    color: #e5e7eb !important;
+}
+
+body.dark-mode #progress-percentage,
+body.dark-mode #progress-remaining {
+    color: #9ca3af !important;
+}
+
+/* Dark mode - Feature boxes (Über uns screen) */
+body.dark-mode .bg-blue-100 {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+body.dark-mode .bg-purple-100 {
+    background-color: rgba(168, 85, 247, 0.2) !important;
+}
+
+body.dark-mode .bg-green-100 {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+body.dark-mode .bg-orange-100 {
+    background-color: rgba(251, 146, 60, 0.2) !important;
+}
+
+body.dark-mode .bg-yellow-100 {
+    background-color: rgba(251, 191, 36, 0.2) !important;
+}
+
+body.dark-mode .text-blue-600 {
+    color: #60a5fa !important;
+}
+
+body.dark-mode .text-purple-600 {
+    color: #c084fc !important;
+}
+
+body.dark-mode .text-green-600 {
+    color: #34d399 !important;
+}
+
+body.dark-mode .text-orange-600 {
+    color: #fb923c !important;
+}
+
+body.dark-mode .text-yellow-600 {
+    color: #fbbf24 !important;
+}
+
+/* Dark mode - About us and Impressum screens */
+body.dark-mode #about-us-screen h3,
+body.dark-mode #impressum-screen h3 {
+    color: #f3f4f6 !important;
+}
+
+body.dark-mode #about-us-screen p,
+body.dark-mode #impressum-screen p {
+    color: #d1d5db !important;
+}
+
+body.dark-mode #about-us-screen .text-gray-600,
+body.dark-mode #impressum-screen .text-gray-600 {
+    color: #9ca3af !important;
+}
+
+body.dark-mode #about-us-screen .text-gray-700,
+body.dark-mode #impressum-screen .text-gray-700 {
+    color: #d1d5db !important;
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+    transition: all 0.3s ease;
+}
+
+body.dark-mode #dark-mode-toggle {
+    background-color: #fbbf24 !important;
+    color: #1f2937 !important;
+}
+
+body.dark-mode #dark-mode-toggle:hover {
+    background-color: #fcd34d !important;
+}
+.screen {
+    display: none; /* Hide all screens by default */
+}
+.screen.active {
+    display: block; /* Show only the active screen */
+}
+/* Fade-in animation for screens */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.screen.active {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+.progress-bar-inner {
+    transition: width 0.5s ease-in-out;
+}
+
+/* Enhanced Progress Bar Styling */
+.progress-bar-animated {
+    position: relative;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+}
+
+.progress-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+    );
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+#ki-result {
+    white-space: pre-wrap;
+}
+.btn {
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+.party-logo {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.8rem; /* Smaller font for abbreviations */
+    background: #ffffff; /* neutral bg for image logos */
+    overflow: hidden;
+}
+
+/* Party logo image: fit nicely into container */
+.party-logo img.party-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+}
+/* Keep the main card fully opaque so the BG image is only visible around it (where the bars are) */
+main#app-container {
+    background-color: #ffffff; /* Solid white card */
+}
+
+/* White tail block under the main card (only when class is toggled) */
+main#app-container.with-white-tail {
+    position: relative;
+    z-index: 0; /* establish stacking context so ::after sits behind but stays visible */
+}
+
+main#app-container.with-white-tail::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% - 16px); /* tighter connection to the card */
+    width: 100%;            /* same width as the card */
+    height: 320px;          /* shorter tail to avoid extra scrolling */
+    background: #ffffff;    /* pure white block */
+    z-index: 0;             /* above page background, does not create overlap with content due to top offset */
+    pointer-events: none;
+}
+.thesis-explanation {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-top: 0;
+    opacity: 0;
+}
+.thesis-explanation.active {
+    max-height: 200px; /* Adjust as needed */
+    padding-top: 1rem;
+    opacity: 1;
+    transition: max-height 0.5s ease-in-out, padding-top 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* NEUE CSS-Klassen für Pro/Contra */
+.pro-con-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.3s ease-out, opacity 0.3s ease-out;
+    margin-top: 0;
+    opacity: 0;
+    border-top: 1px solid #e5e7eb; /* Trennlinie */
+    text-align: left; /* Sorgt für linksbündigen Text in der Box */
+}
+.pro-con-container.active {
+    max-height: 500px; /* Ausreichend Höhe für Inhalt */
+    transition: max-height 0.5s ease-in, margin-top 0.3s ease-in, opacity 0.5s ease-in;
+    margin-top: 1.25rem; /* 20px */
+    padding-top: 1.25rem; /* 20px */
+    opacity: 1;
+}
+/* ENDE NEU */
+
+.ai-analysis-text {
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #374151;
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    margin-top: 1rem;
+}
+.ai-loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    color: #6b7280;
+}
+/* Style for the new navigation bar - now fixed at the very top */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    background-color: #ffffff; /* White background for the nav bar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000; /* Ensure it's above other content */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+.top-nav-button {
+    background-color: #e2e8f0; /* Light gray for inactive tabs */
+    color: #4a5568; /* Darker text for inactive tabs */
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: 1px solid #cbd5e0;
+    min-width: 120px; /* Ensure buttons have a minimum width */
+    text-align: center;
+}
+.top-nav-button:hover {
+    background-color: #cbd5e0;
+    color: #2d3748;
+}
+.top-nav-button.active-tab {
+    background-color: #3b82f6; /* Blue for active tab */
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+/* Style for the new home button */
+.home-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    z-index: 1001; /* Ensure it's above the nav bar */
+}
+.home-button:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
+
+/* Style for the Pro & Contra button - matches home button design */
+.pro-contra-btn {
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+.pro-contra-btn:hover {
+    background-color: #2563eb;
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip für Pro & Contra Button */
+.pro-contra-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1f2937;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    margin-bottom: 0.5rem;
+    z-index: 50;
+}
+
+.pro-contra-btn:hover .pro-contra-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Larger Pro & Contra Button with text */
+.pro-contra-btn-large {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.pro-contra-btn-large:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlight styling for the Wahlkreis select (makes it more prominent) */
+@keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(59,130,246,0.18); }
+    70% { box-shadow: 0 0 0 12px rgba(59,130,246,0); }
+    100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
+}
+
+#wahlkreis-select.wahlkreis-highlight {
+    border-color: #2563eb; /* stronger blue border */
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.12), 0 8px 24px rgba(37,99,235,0.10);
+    transform: translateY(-2px);
+    transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s;
+    animation: pulse-ring 1.6s infinite;
+}
+
+#wahlkreis-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+    outline: none;
+}
+
+.wahlkreis-label-highlight {
+    color: #1e40af; /* deep blue */
+    font-weight: 700;
+}
+
+/* Make the select slightly larger when highlighted for emphasis */
+#wahlkreis-select.wahlkreis-highlight {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+
+/* Wahlkreis select — always blue like home button, no gray focus waves, consistent size, NO SHIFT */
+#wahlkreis-select {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35), 0 4px 12px rgba(37, 99, 235, 0.2) !important;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    height: auto !important;
+    min-height: 2.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+    transform: translateY(0) !important;
+    will-change: auto !important;
+}
+
+#wahlkreis-select:focus {
+    outline: none !important;
+    border-color: #1d4ed8 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35), 0 4px 12px rgba(37, 99, 235, 0.2) !important;
+    height: auto !important;
+    min-height: 2.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+    transform: translateY(0) !important;
+}
+
+/* Emphasize the label — always blue like the select */
+#wahlkreis-select-label {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* Card-only hero background inside the white main card (top area only) */
+main#app-container.bw-card-hero {
+    /* Two layered backgrounds: top = fade-to-white overlay, bottom = image */
+    background-image:
+        linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 70%, #ffffff 100%),
+        url('stuttgart.jpg');
+    /* Limit the image/overlay to a fixed banner height at the top */
+    background-size: 100% 260px, 100% 260px;
+    background-repeat: no-repeat, no-repeat;
+    background-position: top center, top center;
+}
+
+/* Page-wide hero band behind the entire top gray area (as marked in red) */
+.container.bw-page-hero {
+    position: relative; /* establish positioning context for ::before */
+}
+
+.container.bw-page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;            /* span full viewport width */
+    /* Responsive hero-band height synced via CSS variable */
+    height: var(--hero-h);
+    z-index: -1;             /* place behind page content */
+    pointer-events: none;    /* ensure no interaction blocking */
+    background-image:
+        /* Tighter fade: keep image clear longer, fade only near the bottom */
+        linear-gradient(to bottom,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,0) 78%,
+            rgba(240,242,245,0.5) 90%,
+            #f0f2f5 100%
+        ),
+        url('stuttgart.jpg');
+    background-size: cover, cover;
+    background-position: center 30%, center 30%;
+    background-repeat: no-repeat, no-repeat;
+}
+
+/* Header-only hero background where the title sits (full-width band) */
+#site-header.bw-header-hero {
+    position: relative;
+    min-height: 260px; /* banner height */
+    padding: 28px 0;   /* space for the text inside */
+}
+
+#site-header.bw-header-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;           /* full viewport width */
+    height: 260px;          /* match banner height */
+    z-index: 0;             /* behind the header content */
+    background-image:
+        linear-gradient(to bottom, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.65) 72%, #ffffff 100%),
+        url('stuttgart.jpg');
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+}
+
+/* Local KI summary styling */
+.local-summary h4, .local-summary h5 {
+    color: #1f2937;
+}
+.local-summary ul li em {
+    color: #2563eb;
+    font-style: normal;
+    font-weight: 600;
+}
+
+/* Theses bottom navigation bar */
+.thesis-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 0.5rem 0.75rem;
+}
+.btn-nav {
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0.875rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.btn-nav:hover {
+    background: #eef2f7;
+}
+.btn-nav-primary {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 0.875rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+    transition: transform 0.1s ease, box-shadow 0.2s ease, background 0.15s ease;
+}
+.btn-nav-primary:hover {
+    background: #1d4ed8;
+}
+.btn-nav[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Selected answer highlight (in addition to Tailwind bg colors) */
+.answer-selected {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* AI Model Cards */
+.ai-model-card {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-model-card:hover {
+    border-color: #8b5cf6;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.3);
+}
+
+.ai-model-card.active {
+    border-color: #8b5cf6;
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    box-shadow: 0 8px 20px -5px rgba(139, 92, 246, 0.4);
+}
+
+.ai-model-logo {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.ai-model-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: white;
+    padding: 0.25rem;
+}
+
+.ai-model-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-align: center;
+    color: #1f2937;
+}
+
+.ai-model-analysis-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.3s ease-out, margin-top 0.3s ease-out;
+    opacity: 0;
+    margin-top: 0;
+}
+
+.ai-model-analysis-container.active {
+    max-height: 1200px;
+    opacity: 1;
+    margin-top: 1rem;
+    transition: max-height 0.5s ease-in, opacity 0.5s ease-in, margin-top 0.3s ease-in;
+}
+
+.ai-model-analysis-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 2px solid #8b5cf6;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+}
+
+.ai-model-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f3e8ff;
+}
+
+.ai-analysis-text {
+    white-space: pre-wrap;
+    line-height: 1.7;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+.ai-analysis-text strong,
+.ai-analysis-text b {
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.ai-analysis-text em {
+    color: #8b5cf6;
+    font-style: normal;
+    font-weight: 600;
+}
