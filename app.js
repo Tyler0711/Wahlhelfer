@@ -962,6 +962,16 @@ function categorizeThesis(thesisText) {
 
 
 
+// --- BACKEND URL DETECTION ---
+function getBackendUrl() {
+    // Automatische Erkennung: Lokal (file://) oder Online (https://)
+    if (window.location.protocol === 'file:') {
+        return 'http://localhost:3001'; // Lokal
+    } else {
+        return 'https://wahlhelfer.onrender.com'; // Online
+    }
+}
+
 // --- KI ANALYSIS (for overall result) ---
 async function getAiAnalysis() {
     const kiLoading = document.getElementById('ki-loading');
@@ -996,8 +1006,9 @@ async function getAiAnalysis() {
     });
     
     try {
-        // Call deployed backend API
-        const response = await fetch('https://wahlhelfer.onrender.com/analyze', {
+        // Call backend API (automatically detects local or online)
+        const backendUrl = getBackendUrl();
+        const response = await fetch(`${backendUrl}/analyze`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ prompt: prompt })
@@ -1652,8 +1663,9 @@ async function getAIModelAnalysis(model) {
     }));
     
     try {
-        // Make real API call to deployed backend
-        const response = await fetch(`https://wahlhelfer.onrender.com/api/analyze/${model.endpoint}`, {
+        // Make API call to backend (automatically detects local or online)
+        const backendUrl = getBackendUrl();
+        const response = await fetch(`${backendUrl}/api/analyze/${model.endpoint}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
